@@ -1,5 +1,10 @@
 from time import sleep
 name = input("Whats your name?")
+sleep (1)
 print ("Nice to meet you " + name + "!")
+sleep (1)
 age = input("How old are you?")
+sleep (1)
 print ("Wow "+ age + " thats old!")
+sleep (1)
+print ("Have a nice day " + name + "! "+" See you in another " + age + " years!")
