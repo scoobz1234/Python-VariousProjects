@@ -43,7 +43,7 @@ def git_add():
     exit_prompt()
 
 def git_commit():
-    call('git commit -m"Auto"')
+    call("git commit -m")
     exit_prompt()
 
 #   ***** GUI *****
