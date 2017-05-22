@@ -5,6 +5,7 @@ from tkinter import *
 from tkinter import simpledialog
 from tkinter import messagebox
 from subprocess import call, Popen, PIPE
+import os
 
 #  ***** FUNCTIONS *****
 def exit_prompt():
@@ -38,25 +39,23 @@ def git_status():
     messagebox.showinfo("Status","Check the Terminal!")
     exit_prompt()
 
-def git_add():
-    call("git add -A",shell=True)
+def git_commit():
+    os.system('git commit -m"gitHandler"')
     exit_prompt()
 
-def git_commit():
-    call("git commit -m[Auto]")
-    exit_prompt()
+def git_add():
+    call("git add -A",shell=True)
+    git_commit()
 
 #   ***** GUI *****
 root = Tk()
 root.wm_title("Git Handler")
-# window_label = Label(root, text="Git Handler")
 root.geometry("200x200")
-# window_label.pack()
+
 
 Button(root, text="Git Push", command=git_push, pady=10).pack(fill=X)
 Button(root, text="Git Clone", command=git_clone, pady=10).pack(fill=X)
-Button(root, text="Git Add", command=git_add, pady=10).pack(fill=X)
-Button(root, text="Git commit", command=git_commit, pady=10).pack(fill=X)
+Button(root, text="Git Add/Commit", command=git_add, pady=10).pack(fill=X)
 Button(root, text="Git Status", command=git_status, pady=10).pack(fill=X)
 Button(root, text="Exit", command=root.quit, pady=10).pack(fill=X)
 
