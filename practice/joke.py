@@ -1,38 +1,66 @@
+"""GUI GIT Program"""
+
+#   ***** IMPORTS *****
 from tkinter import *
-from time import sleep
+from tkinter import simpledialog
+from tkinter import messagebox
+from subprocess import call, Popen, PIPE
 
-#defines the function show name later called with a button
-def show_name():
-    times= int(e3.get())
-    for i in range(times):
-        print("Hello",e1.get(),e2.get())
-    Label(master, text="Check the Terminal!!!").grid(row=4,column=0)
-    e1.delete(0,END)
-    e2.delete(0,END)
-    e3.delete(0,END)
+#  ***** FUNCTIONS *****
+def exit_prompt():
+    exit_prompt = messagebox.askquestion("Quit","Do you want to quit?",icon="warning")
+    if exit_prompt == 'yes':
+        print ("Thanks for using Git Handler")
+        quit()
+    else:
+        print ("Please Continue")
 
-master = Tk()
-master.wm_title("Name Repeater")
+def git_push():
+# solicit input
+    user_name = simpledialog.askstring("Username:","What is your username?")
+    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?")
+# let them know they gotta put in their password(until i figure this part out)
+    messagebox.showinfo("Password","Please enter your Password in the Terminal")
+# do stuff with the data
+    call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
+    exit_prompt()
 
-#label for the entries window
-Label(master, text="First Name:").grid(row=0,column=0,)
-Label(master, text="Last Name:").grid(row=1,column=0,)
-Label(master, text="Times to Repeat").grid(row=2,column=0,)
+def git_clone():
+# solicit input
+    user_name = simpledialog.askstring("Username:","What is your username?")
+    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?")
+# do stuff with the data
+    call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
+    exit_prompt()
 
+def git_status():
+    call("git status",shell=True)
+    messagebox.showinfo("Status","Check the Terminal!")
+    exit_prompt()
 
-#buttons to do stuff
-Button(master, text="Exit", command=master.quit).grid(row=3,column=2)
-Button(master, text="Go!", command=show_name).grid(row=3,column=0)
-Button(master, text="Reset", command='').grid(row=3,column=1)
-#entry windows for input
-e1 = Entry(master)
-e2 = Entry(master)
-e3 = Entry(master)
+def git_add():
+    call("git add -A",shell=True)
+    exit_prompt()
 
-#tells the window where to place the first name entry box
-e1.grid(row=0, column=1)
-e2.grid(row=1, column=1)
-e3.grid(row=2, column=1)
+def git_commit():
+    call('git commit -m"Auto"')
+    exit_prompt()
 
+#   ***** GUI *****
+root = Tk()
+root.wm_title("Git Handler")
+# window_label = Label(root, text="Git Handler")
+root.geometry("200x200")
+# window_label.pack()
 
-mainloop( )
+Button(root, text="Git Push", command=git_push, pady=10).pack(fill=X)
+Button(root, text="Git Clone", command=git_clone, pady=10).pack(fill=X)
+Button(root, text="Git Add", command=git_add, pady=10).pack(fill=X)
+Button(root, text="Git commit", command=git_commit, pady=10).pack(fill=X)
+Button(root, text="Git Status", command=git_status, pady=10).pack(fill=X)
+Button(root, text="Exit", command=root.quit, pady=10).pack(fill=X)
+
+#   ***** Welcome Pop-up *****
+messagebox.showinfo("Welcome","This is a program to automate your Git stuff!")
+
+mainloop()
