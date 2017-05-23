@@ -38,9 +38,9 @@ print("********************************\nWelcome to the Auto Git Handler!\n*****
 sleep(1)
 print("*********************************\nCreated by Stephen Ouellette 17'!\n*********************************\n\n")
 sleep(3)
-print("type [Help] or [H] at any time to get a list of commands!\n")
+print("type [Help] or [H] at any time to get a list of commands!")
 while True:
-    print("you have access to the following commands:\n\n[Clone]","[Push]","[Status]","[Add_Commit]","[Exit]\n\nalternatly try [C] [P] [S] [A] [E] respectivly\n")
+    print("\nyou have access to the following commands:\n\n[Clone]","[Push]","[Status]","[Add_Commit]","[Exit]\n\nalternatly try [C] [P] [S] [A] [E] respectivly\n")
     user_command = str(input(">>> ")).upper()
 
     if user_command == "CLONE" or user_command == "C":
