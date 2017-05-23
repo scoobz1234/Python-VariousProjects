@@ -34,6 +34,7 @@ def git_push():
     repo_name = input("What's your Repo's Name?\n>>> ")
 # runs the git push command in terminal
     call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
+    print("")
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print(colors.bold,"********PUSH COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
@@ -44,6 +45,7 @@ def git_clone():
     repo_name = input("What's the Repo's Name?\n>>> ")
 # runs the git clone command in terminal
     call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
+    print("")
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print(colors.bold,"********CLONE COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
@@ -55,6 +57,7 @@ def git_status():
 def git_commit():
 # runs the git commit command in terminal (note: this is using os.system because of an error call was causing for this command)
     os.system('git commit -m"gitHandler"')
+    print("")
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print(colors.bold,"********COMMIT COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
