@@ -17,6 +17,9 @@ def git_push():
     repo_name = input(">>> ")
 # do stuff with the data
     call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
+    print("********************************")
+    print("********PUSH COMPLETED********")
+    print("********************************")
 
 def git_clone():
 # solicit input
@@ -26,12 +29,18 @@ def git_clone():
     repo_name = input(">>> ")
 # do stuff with the data
     call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
+    print("********************************")
+    print("********CLONE COMPLETED********")
+    print("********************************")
 
 def git_status():
     call("git status",shell=True)
 
 def git_commit():
     os.system('git commit -m"gitHandler"')
+    print("********************************")
+    print("********COMMIT COMPLETED********")
+    print("********************************")
 
 def git_add():
     call("git add -A",shell=True)
@@ -42,9 +51,9 @@ def git_add():
 print("Welcome to Stephen's Git Handler!")
 print("type Help at any time to get a list of commands!")
 while True:
-    print("you have access to the following commands:")
-    print("[Clone]","[Push]","[Status]","[Commit]","[Exit]")
-    print("***NOTE***","Commit command will perform Add and Commit")
+    print("you have access to the following commands:\n")
+    print("[Clone]","[Push]","[Status]","[Commit]","[Exit]\n")
+    print("***NOTE***","Commit command will perform Add and Commit\n")
     user_command = str(input(">>> "))
     user_command = user_command.upper()
 
