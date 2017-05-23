@@ -36,11 +36,11 @@ def git_push():
     call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
     print("")
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
-    print(colors.bold,"********PUSH COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
+    print(colors.bold,"*********PUSH COMPLETED*********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print("")
     print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
-    
+
 def git_clone():
 # get the username and rep name for the git your going to clone from
     user_name = input("What's the Username?\n>>>  ")
@@ -150,6 +150,9 @@ while True:
     elif user_command == "EXIT" or user_command == "E":
         confirm = str(input("You have selected the Exit command, are you sure?\n(Y/N)\n>>> ")).upper()
         if confirm == "Y" or confirm == "YES":
+            print(colors.red,"**********************************".center(os.get_terminal_size().columns),colors.endc)
+            print(colors.bold,"Thanks for using Git Handler!!!!!!".center(os.get_terminal_size().columns),colors.endc)
+            print(colors.red,"**********************************".center(os.get_terminal_size().columns),colors.endc)
             break
         else:
             continue
