@@ -34,7 +34,9 @@ def git_push():
     repo_name = input("What's your Repo's Name?\n>>> ")
 # runs the git push command in terminal
     call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
-    print("\n********************************\n********PUSH COMPLETED********\n********************************\n")
+    print(colors.green,"********************************",colors.endc)
+    print(colors.bold,"********PUSH COMPLETED********",colors.endc)
+    print(colors.bold,"********************************",colors.endc)
 
 def git_clone():
 # get the username and rep name for the git your going to clone from
@@ -42,7 +44,9 @@ def git_clone():
     repo_name = input("What's the Repo's Name?\n>>> ")
 # runs the git clone command in terminal
     call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
-    print("\n********************************\n********CLONE COMPLETED********\n********************************\n")
+    print(colors.green,"********************************",colors.endc)
+    print(colors.bold,"********CLONE COMPLETED********",colors.endc)
+    print(colors.bold,"********************************",colors.endc)
 
 def git_status():
 # runs the git status command in terminal
@@ -51,7 +55,9 @@ def git_status():
 def git_commit():
 # runs the git commit command in terminal (note: this is using os.system because of an error call was causing for this command)
     os.system('git commit -m"gitHandler"')
-    print("\n********************************\n********COMMIT COMPLETED********\n********************************\n")
+    print(colors.green,"********************************",colors.endc)
+    print(colors.bold,"********COMMIT COMPLETED********",colors.endc)
+    print(colors.bold,"********************************",colors.endc)
 
 def git_add():
 # runs the git add command in terminal then runs the git_commit function.
