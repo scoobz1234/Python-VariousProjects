@@ -53,6 +53,8 @@ def git_clone():
 def git_status():
 # runs the git status command in terminal
     call("git status",shell=True)
+    print("")
+    print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
 
 def git_commit():
 # runs the git commit command in terminal (note: this is using os.system because of an error call was causing for this command)
@@ -100,6 +102,7 @@ while True:
     elif user_command == "STATUS" or user_command == "S":
         confirm = str(input("You have selected the Status command, are you sure?\n(Y/N)\n>>> ")).upper()
         if confirm == "Y" or confirm == "YES":
+            print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
             git_status()
             continue
         else:
