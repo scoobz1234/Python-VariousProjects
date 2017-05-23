@@ -40,7 +40,7 @@ def git_commit():
     os.system('git commit -m"gitHandler"')
     print("********************************")
     print("********COMMIT COMPLETED********")
-    print("********************************")
+    print("********************************\n")
 
 def git_add():
     call("git add -A",shell=True)
@@ -49,16 +49,16 @@ def git_add():
 #   ***** SETUP *****
 
 print("Welcome to Stephen's Git Handler!")
-print("type Help at any time to get a list of commands!")
+print("type Help at any time to get a list of commands!\n")
 while True:
-    print("you have access to the following commands:\n")
-    print("[Clone]","[Push]","[Status]","[Commit]","[Exit]\n")
-    print("***NOTE***","Commit command will perform Add and Commit\n")
+    print("you have access to the following commands:\n\n[Clone]","[Push]","[Status]","[Add_Commit]","[Exit]\n\nalternatly try [C][P][S][A][E] respectivly\n")
+    # print("[Clone]","[Push]","[Status]","[Commit]","[Exit]\n")
+    # print("***NOTE***","Commit command will perform Add and Commit\n")
     user_command = str(input(">>> "))
     user_command = user_command.upper()
 
     if user_command == "CLONE":
-        print("You have selected the clone function, are you sure?")
+        print("You have selected the Clone function, are you sure?")
         confirm = str(input("(Y/n)\n>>> "))
         confirm = confirm.upper()
         if confirm == "Y" or "YES":
@@ -67,7 +67,7 @@ while True:
             continue
 
     elif user_command == "STATUS":
-        print("You have selected the Exit command, are you sure?")
+        print("You have selected the Status command, are you sure?")
         confirm = str(input("(Y/n)\n>>> "))
         confirm = confirm.upper()
         if confirm == "Y" or "YES":
@@ -77,7 +77,7 @@ while True:
             continue
 
     elif user_command == "CLONE":
-        print("You have selected the Exit command, are you sure?")
+        print("You have selected the Clone command, are you sure?")
         confirm = str(input("(Y/n)\n>>> "))
         confirm = confirm.upper()
         if confirm == "Y" or "YES":
@@ -86,8 +86,8 @@ while True:
         else:
             continue
 
-    elif user_command == "COMMIT":
-        print("You have selected the Exit command, are you sure?")
+    elif user_command == "ADD_COMMIT" or "ADD" or "COMMIT":
+        print("You have selected the Commit command, are you sure?")
         confirm = str(input("(Y/n)\n>>> "))
         confirm = confirm.upper()
         if confirm == "Y" or "YES":
