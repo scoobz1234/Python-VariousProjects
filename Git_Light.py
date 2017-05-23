@@ -38,7 +38,9 @@ def git_push():
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print(colors.bold,"********PUSH COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
-
+    print("")
+    print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
+    
 def git_clone():
 # get the username and rep name for the git your going to clone from
     user_name = input("What's the Username?\n>>>  ")
@@ -49,6 +51,8 @@ def git_clone():
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print(colors.bold,"********CLONE COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
+    print("")
+    print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
 
 def git_status():
 # runs the git status command in terminal
@@ -63,6 +67,8 @@ def git_commit():
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
     print(colors.bold,"********COMMIT COMPLETED********".center(os.get_terminal_size().columns),colors.endc)
     print(colors.green,"********************************".center(os.get_terminal_size().columns),colors.endc)
+    print("")
+    print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
 
 def git_add():
 # runs the git add command in terminal then runs the git_commit function.
@@ -95,6 +101,7 @@ while True:
     if user_command == "CLONE" or user_command == "C":
         confirm = str(input("You have selected the Clone function, are you sure?\n(Y/N)\n>>> ")).upper()
         if confirm == "Y" or confirm == "YES":
+            print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
             git_clone()
         else:
             continue
@@ -111,6 +118,7 @@ while True:
     elif user_command == "PUSH" or user_command == "P":
         confirm = str(input("You have selected the Push command, are you sure?\n(Y/N)\n>>> ")).upper()
         if confirm == "Y" or confirm == "YES":
+            print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
             git_push()
             continue
         else:
@@ -119,6 +127,7 @@ while True:
     elif user_command == "ADD_COMMIT" or user_command == "A" or user_command == "COMMIT":
         confirm = str(input("You have selected the Add/Commit command, are you sure?\n(Y/N)\n>>> ")).upper()
         if confirm == "Y" or confirm == "YES":
+            print(colors.purple,"********************************".center(os.get_terminal_size().columns),colors.endc)
             git_add()
             continue
         else:
