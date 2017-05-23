@@ -17,7 +17,6 @@ def git_push():
     repo_name = input(">>> ")
 # do stuff with the data
     call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
-    exit_prompt()
 
 def git_clone():
 # solicit input
@@ -27,15 +26,12 @@ def git_clone():
     repo_name = input(">>> ")
 # do stuff with the data
     call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
-    exit_prompt()
 
 def git_status():
     call("git status",shell=True)
-    exit_prompt()
 
 def git_commit():
     os.system('git commit -m"gitHandler"')
-    exit_prompt()
 
 def git_add():
     call("git add -A",shell=True)
