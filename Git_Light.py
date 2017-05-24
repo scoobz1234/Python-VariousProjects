@@ -1,7 +1,7 @@
 """       Lightweight GIT Program    """
 # text wrap is reccomended, there are some long lines in this one....
 # created by Stephen Ouellette 2017
-# no key logging....yet..... :-P
+# no key logging....yet..... :-P haha just kidding..
 # make sure you place this program in the directory you want to clone into IE desktop so it will become /Desktop/REPO
 # and if you want to be able to push, add, and commit, you will need to place this file in the repo's main folder. /Desktop/Repo/Git_Light.py
 """       ***** IMPORTS *****        """
