@@ -20,8 +20,8 @@ def exit_prompt():
 
 def git_push():
 # solicit input
-    user_name = simpledialog.askstring("Username:","What is your username?",master=root)
-    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?",master=root)
+    user_name = simpledialog.askstring("Username:","What is your username?")
+    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?")
 # let them know they gotta put in their password(until i figure this part out)
     messagebox.showinfo("Password","Please enter your Password in the Terminal",master=root)
 # do stuff with the data
@@ -30,8 +30,8 @@ def git_push():
 
 def git_clone():
 # solicit input
-    user_name = simpledialog.askstring("Username:","What is your username?",master=root)
-    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?",master=root)
+    user_name = simpledialog.askstring("Username:","What is your username?")
+    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?")
 # do stuff with the data
     call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
     exit_prompt()
