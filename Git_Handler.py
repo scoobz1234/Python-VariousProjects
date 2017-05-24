@@ -1,13 +1,14 @@
-"""GUI GIT Program"""
+""" GUI GIT Program """
 
-#   ***** IMPORTS *****
-from tkinter import *
-from tkinter import simpledialog
-from tkinter import messagebox
-from subprocess import call, Popen, PIPE
+"""   ***** IMPORTS *****   """
+
 import os
+from tkinter import *
+from tkinter import simpledialog, messagebox
+from subprocess import call, Popen, PIPE
 
-#  ***** FUNCTIONS *****
+"""  ***** FUNCTIONS *****  """
+
 def exit_prompt():
     exit_prompt = messagebox.askquestion("Quit","Do you want to quit?",icon="warning")
     if exit_prompt == 'yes':
@@ -47,19 +48,35 @@ def git_add():
     call("git add -A",shell=True)
     git_commit()
 
-#   ***** GUI *****
+"""   ***** GUI *****   """
+#   ***** Welcome Pop-up *****
+messagebox.showinfo("Welcome","This is a program to automate your Git stuff!")
+
+#main window
 root = Tk()
+menu = Menu(root)
+root.config(menu=menu)
 root.wm_title("Git Handler")
 root.geometry("200x200")
 
+#file menu cascade drop down tearoff = 0 makes it so the cascade menus cant be removed.
+file_menu = Menu(menu,tearoff = 0)
+menu.add_cascade(label="File", menu=file_menu)
+file_menu.add_command(label="New Project...", command=git_status)
+file_menu.add_command(label="New", command=git_status)
+file_menu.add_separator()
+file_menu.add_command(label="Exit",command=root.quit)
 
+#edit menu cascade drop down
+edit_menu = Menu(menu,tearoff = 0)
+menu.add_cascade(label="Edit", menu=edit_menu)
+edit_menu.add_command(label="Redo",command=git_status)
+
+#buttons to do stuff! pady give us bigger buttons and fill x fills from left and right.
 Button(root, text="Git Push", command=git_push, pady=10).pack(fill=X)
 Button(root, text="Git Clone", command=git_clone, pady=10).pack(fill=X)
 Button(root, text="Git Add/Commit", command=git_add, pady=10).pack(fill=X)
 Button(root, text="Git Status", command=git_status, pady=10).pack(fill=X)
 Button(root, text="Exit", command=root.quit, pady=10).pack(fill=X)
 
-#   ***** Welcome Pop-up *****
-messagebox.showinfo("Welcome","This is a program to automate your Git stuff!")
-
-mainloop()
+root.mainloop()
