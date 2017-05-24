@@ -11,7 +11,7 @@ from subprocess import call, Popen, PIPE
 """  ***** FUNCTIONS *****  """
 
 def exit_prompt():
-    exit_prompt = messagebox.askquestion("Quit","Do you want to quit?",icon="warning")
+    exit_prompt = messagebox.askquestion("Quit","Do you want to quit?",icon="warning",master=root)
     if exit_prompt == 'yes':
         print ("Thanks for using Git Handler")
         quit()
@@ -20,25 +20,25 @@ def exit_prompt():
 
 def git_push():
 # solicit input
-    user_name = simpledialog.askstring("Username:","What is your username?")
-    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?")
+    user_name = simpledialog.askstring("Username:","What is your username?",master=root)
+    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?",master=root)
 # let them know they gotta put in their password(until i figure this part out)
-    messagebox.showinfo("Password","Please enter your Password in the Terminal")
+    messagebox.showinfo("Password","Please enter your Password in the Terminal",master=root)
 # do stuff with the data
     call('git push https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
     exit_prompt()
 
 def git_clone():
 # solicit input
-    user_name = simpledialog.askstring("Username:","What is your username?")
-    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?")
+    user_name = simpledialog.askstring("Username:","What is your username?",master=root)
+    repo_name = simpledialog.askstring("Repo Name","What's your Repo's Name?",master=root)
 # do stuff with the data
     call('git clone https://' + user_name + '@github.com/' + user_name + '/' + repo_name + '.git',shell=True)
     exit_prompt()
 
 def git_status():
     call("git status",shell=True)
-    messagebox.showinfo("Status","Check the Terminal!")
+    messagebox.showinfo("Status","Check the Terminal!",master=root)
     exit_prompt()
 
 def git_commit():
@@ -66,8 +66,7 @@ def git_create():
     commit = Button(create_window, text="stuff", command=git_add, pady=10).pack(fill=X)
 
 """   ***** GUI *****   """
-#   ***** Welcome Pop-up *****
-messagebox.showinfo("Welcome","This is a program to automate your Git stuff!")
+
 
 #main window
 root = Tk()
@@ -82,6 +81,9 @@ hs = root.winfo_screenheight()
 x = (ws/2) - (w/2)
 y = (hs/2) - (h/2)
 root.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+#   ***** Welcome Pop-up *****
+messagebox.showinfo("Welcome","This is a program to automate your Git stuff!",master=root)
 
 #file menu cascade drop down tearoff = 0 makes it so the cascade menus cant be removed.
 file_menu = Menu(menu,tearoff = 0)
