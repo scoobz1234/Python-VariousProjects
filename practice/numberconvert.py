@@ -8,6 +8,8 @@ while True:
     teens_list = ['Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen']
 # Tens list
     tens_list = ['Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety']
+# Hundreds list
+    hundreds_list = ['One Hundred','Two Hundred','Three Hundred','Four Hundred','Five Hundred','Six Hundred','Seven Hundred','Eight Hundred','Nine Hundred']
 
     if number <= 9: # if the number is lass than 9
         print(ones_list[number]) # print the number from the list above according to its place value
@@ -22,6 +24,15 @@ while True:
             print(tens_list[twos]) # print from the tens list with the twos location number
         elif tens != 0: # if tens is not equal to 0 so there is a 1-9 after the first place I.E 21
             print(tens_list[twos] + "-" + ones_list[tens]) # print from tens list using twos, and then number from ones list.
+    elif number > 99 and number <=999:
+        ones = math.floor(number/10)
+        twos = ones -2
+        tens = number % 10
+        hundreds = number % 100
+        if hundreds == 0: # if tens is 0 then we just print from the tens list because there isnt a following number. 20,30 ect.
+            print(tens_list[twos] + "-" + ones_list[tens]) # print from the tens list with the twos location number
+        elif hundreds != 0: # if tens is not equal to 0 so there is a 1-9 after the first place I.E 21
+            print(hundreds_list[hundreds] + tens_list[twos] + "-" + ones_list[tens]) # print from tens list using twos, and then number from ones list.
     else:
         print ("Didn't I say 1-99? ...")
         continue
