@@ -12,12 +12,14 @@ def hex2rgb (hexcode):
 def str2bin(message):
     # binary = bin(int(binascii.hexlify(message), 16))
     binary= bin(int.from_bytes(message.encode(),'big'))
+    # binary = str.encode(message)
     return binary[2:]
 
 def bin2str(binary):
     # message = binascii.unhexlify('%x' %(int('0b' +binary, 2)))
-    return ''.join(chr(int(binary[i*8:i*8+8],2)) for i in range(len(binary)//8))
-    bin2str(binary)
+    message = ''.join(chr(int(binary[i*8:i*8+8],2)) for i in range(len(binary)//8))
+    # bin2str(binary)
+    return message
 
 def encode(hexcode, digit):
     if hexcode[-1] in ('0','1','2','3','4','5'):
