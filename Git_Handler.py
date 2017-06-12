@@ -94,10 +94,10 @@ menu.add_cascade(label="Edit", menu=edit_menu)
 edit_menu.add_command(label="Test Menu",command=git_status)
 
 #buttons to do stuff! pady give us bigger buttons and fill x fills from left and right.
-push = Button(root, text="Git Push", command=git_push, pady=10).pack(fill=X)
+status = Button(root, text="Git Status", command=git_status, pady=10).pack(fill=X)
 clone = Button(root, text="Git Clone", command=git_clone, pady=10).pack(fill=X)
 commit = Button(root, text="Git Add/Commit", command=git_add, pady=10).pack(fill=X)
-status = Button(root, text="Git Status", command=git_status, pady=10).pack(fill=X)
+push = Button(root, text="Git Push", command=git_push, pady=10).pack(fill=X)
 exit = Button(root, text="Exit", command=root.quit, pady=10).pack(fill=X)
 
 root.mainloop()
